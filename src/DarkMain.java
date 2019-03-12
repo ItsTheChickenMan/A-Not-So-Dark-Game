@@ -81,13 +81,9 @@ class Game {
 							int temp = DarkMain.input.nextInt(); //Testing to see which action is chosen
 							if(temp == 1){   //If "Travel Path" is picked, change location
 								Util.clearScreen();
-								Util.intPrint("This is the end of the current dev build.  More is to come!");
-								Util.printDead();
-								end = true;
+								DarkMain.location[0] = 1;    
+								DarkMain.location[1] = 6;
 								break;
-								//DarkMain.location[0] = 1;    
-								//DarkMain.location[1] = 6;
-								//break;
 							} else if(temp == 2){  //If "Climb Tree" is picked, do all this
 								Stats.health = Stats.health - 2;
 								String youClimb = "\nYou start to climb the tree.  You cut your arm on the branches and lose 2 health.";  
@@ -163,7 +159,7 @@ class Game {
 							}
 							
 						}
-						if(end == true){
+						if(end == true || !(DarkMain.location[0] == 1 && DarkMain.location[1] == 7)){
 							break;
 						} else {
 							continue;
