@@ -11,7 +11,7 @@ Dev Build 1 is available via download
 Features one location, second location is in source code but is being worked on and can't be accessed in-game.
 
 # Compatibility
-JRE 1.8.0_201 is currently required to run.
+JRE 1.8.0_201 is currently required to run.  You can download it here: https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 
 Compatible with Windows XP, 7, and 10.
 
