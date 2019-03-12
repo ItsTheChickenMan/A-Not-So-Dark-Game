@@ -6,11 +6,9 @@ Currently in development stage.  This page is more or less being created just so
 A new build will be released weekly, at the very least.
 
 # CURRENT BUILD
-Dev Build 1 is available via download at the releases page
+Dev Build 1 is available via download at the releases page.  It features one location.
 
-Features one location, second location is in source code but is being worked on and can't be accessed in-game.
-
-For latest version (probably buggy) download using the "Clone or Download" button.
+For latest version (probably buggy) download using the "Clone or Download" button at the source code page.
 
 # Compatibility
 JRE 1.8.0_201 is currently required to run.  You can download it here: https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
