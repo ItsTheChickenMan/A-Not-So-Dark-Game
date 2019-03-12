@@ -6,9 +6,11 @@ Currently in development stage.  This page is more or less being created just so
 A new build will be released weekly, at the very least.
 
 # CURRENT BUILD
-Dev Build 1 is available via download
+Dev Build 1 is available via download at the releases page
 
 Features one location, second location is in source code but is being worked on and can't be accessed in-game.
+
+For latest version (probably buggy) download using the "Clone or Download" button.
 
 # Compatibility
 JRE 1.8.0_201 is currently required to run.  You can download it here: https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
@@ -16,8 +18,6 @@ JRE 1.8.0_201 is currently required to run.  You can download it here: https://w
 Compatible with Windows XP, 7, and 10.
 
 # How To Run
-Press "Clone or Download" on project page
-
 Run the application "A Not So Dark Game"
 
 NOTE: Don't move the application or it won't run properly
