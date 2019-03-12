@@ -155,7 +155,7 @@ class Game {
 									Util.intPrint("\nYou climb back down the tree.\n");
 									break;
 								}
-							} else if(temp == 3){
+							} else if(temp == 3){ //If "Back" is picked
 								break;
 							} else {
 								System.out.println("Invalid input, please try again.");
@@ -163,10 +163,11 @@ class Game {
 							}
 							
 						}
-						if(end = true){
+						if(end == true){
 							break;
+						} else {
+							continue;
 						}
-						continue;
 					} else if(choice == 2){
 						while(true){
 							while(!DarkMain.input.hasNextInt()){
