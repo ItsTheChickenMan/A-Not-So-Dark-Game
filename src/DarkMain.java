@@ -81,9 +81,13 @@ class Game {
 							int temp = DarkMain.input.nextInt(); //Testing to see which action is chosen
 							if(temp == 1){   //If "Travel Path" is picked, change location
 								Util.clearScreen();
-								DarkMain.location[0] = 1;    
-								DarkMain.location[1] = 6;
+								Util.intPrint("This is the end of the current dev build.  More is to come!");
+								Util.printDead();
+								end = true;
 								break;
+								//DarkMain.location[0] = 1;    
+								//DarkMain.location[1] = 6;
+								//break;
 							} else if(temp == 2){  //If "Climb Tree" is picked, do all this
 								Stats.health = Stats.health - 2;
 								String youClimb = "\nYou start to climb the tree.  You cut your arm on the branches and lose 2 health.";  
@@ -118,6 +122,7 @@ class Game {
 											Util.intPrint(die);
 											Util.printDead();
 											end = true;
+											break;
 										} else {
 											Util.intPrint("\nYou climb to the top, and see that there is fruit.  Grab it?\n");
 											System.out.println("1: Yes");
@@ -125,7 +130,7 @@ class Game {
 											while(!DarkMain.input.hasNextInt()){
 												System.out.println("\nInvalid input.  Try again.");
 												DarkMain.input.next();
-											}
+			         						}
 											int ey = DarkMain.input.nextInt();
 											if(ey == 1){
 												for(int i = 0; i < DarkMain.items.length; i++){
@@ -139,16 +144,16 @@ class Game {
 												}
 											} else if(ey == 2){
 												Util.intPrint("\nYou climb back down the tree.");
-												continue;
+												break;
 											}
 										}
 									} else {
 										Util.intPrint("\nYou climb back down the tree.\n");
-										continue;
+										break;
 									}
 								} else {
 									Util.intPrint("\nYou climb back down the tree.\n");
-									continue;
+									break;
 								}
 							} else if(temp == 3){
 								break;
@@ -156,8 +161,12 @@ class Game {
 								System.out.println("Invalid input, please try again.");
 								continue;
 							}
+							
+						}
+						if(end = true){
 							break;
 						}
+						continue;
 					} else if(choice == 2){
 						while(true){
 							while(!DarkMain.input.hasNextInt()){
@@ -166,12 +175,13 @@ class Game {
 							}
 							int next = DarkMain.input.nextInt();
 							if(next == 1){
-								continue;
+								break;
 							} else {
 								System.out.println("Invalid input, please try again.");	
 							}
 						}
 						//Add code here if items have special affect in this area
+						continue;
 					} else if(choice == 3){
 						continue;
 					} else if(choice == 4){
@@ -363,10 +373,6 @@ class Util {
 			}
 			TimeUnit.MILLISECONDS.sleep(250);
 		}
-		System.out.println("");
-		System.out.println("1. Continue");
-		System.out.println("2. New Game");
-		System.out.println("3. End Game");
 	}
 	public static int reactionTest(String[] words, boolean warning, int time) throws Exception {
 		if(warning == true){
