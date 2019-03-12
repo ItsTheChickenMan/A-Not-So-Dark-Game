@@ -211,8 +211,37 @@ class Game {
 									end = true;
 								}
 							} else if(reacTst == 1){
-								String[] secAc = {"Leave it be"};
 								Util.intPrint("\nYou manage to make it over the tree.");
+								Util.intPrint("\nYour exercise improves your strength by 2.");
+								Stats.strength += 2;
+								Util.intPrint("\nYou look behind you and realize the tree is too steep to climb back around.  The path continues on.  There is also a clearing to the right, which seems to have been partly caused by the falling tree.\n");
+								String[] actionl = {"Continue along the path.", "Explore around the clearing.", "Scream as loudly as you can.", "Back."};
+								while(true){
+									Util.dispChoice();
+									int key = Util.checkChoice(actionl);
+									if(key == 1){
+										while(true){
+											while(!DarkMain.input.hasNextInt()){
+												System.out.println("Invalid Input.  Try again.");
+											}
+											int keep = DarkMain.input.nextInt();
+											if(keep == 1){
+												
+											} else if(keep == 2){
+											} else if(keep == 3){
+												Util.intPrint("You scream into the forest.  ...Nothing happens.  I'm not sure what you were expecting.");
+												break;
+											} else {
+												System.out.println("Invalid Input, please try again.");
+											}
+										}
+									} else if(key == 2){
+									} else if(key == 3){
+										
+									} else {
+										System.out.println("Invalid Input, please try again.");
+									}
+								}
 							}
 						} else if(temp == 2){ //If you choose to walk around
 							String[] actons = {"Talk", "Slowly Back Away", "Run Away"};
