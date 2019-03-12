@@ -18,7 +18,7 @@ public class DarkMain {
 		String msg2 = "What will your name be?";
 		String msg4 = "Well then, I wish you the best of luck on your journey.";
 		//Game start
-		String version = "Alpha 0.1";  //The Game isn't done so this stays Alpha until I have a testable version
+		String version = "Development";  //The Game isn't done so this stays Alpha until I have a testable version
 		Util.clearScreen(); //Clears screen
 		Game.printTitle(version); //Prints title, parameter is version number
 		Util.secPause(1); //Pauses 
@@ -51,7 +51,7 @@ class Game {
 	public static void printTitle(String version) throws Exception {  //Prints Title and Crap
 		char play = ' ';
 		System.out.println("**A NOT SO DARK GAME** Version " + version + "\n");
-		System.out.println("Created by Phoenix Dalla Costa\n");
+		System.out.println("Created by ItsTheChickenMan\n");
 		System.out.printf("\nPlay (P)? : ");
 		while(true){
 			play = DarkMain.input.next().charAt(0); //Make sure to reference input as "DarkMain.input"
@@ -80,6 +80,7 @@ class Game {
 							}
 							int temp = DarkMain.input.nextInt(); //Testing to see which action is chosen
 							if(temp == 1){   //If "Travel Path" is picked, change location
+								Util.clearScreen();
 								DarkMain.location[0] = 1;    
 								DarkMain.location[1] = 6;
 								break;
@@ -165,7 +166,7 @@ class Game {
 							}
 							int next = DarkMain.input.nextInt();
 							if(next == 1){
-								break;
+								continue;
 							} else {
 								System.out.println("Invalid input, please try again.");	
 							}
@@ -267,8 +268,8 @@ class Util {
 	}
 	public static void listItems() throws Exception {
 		if(DarkMain.items[0].equals("")){
-			System.out.println("You currently have no items.\n");
-			System.out.println("1. Back");
+			System.out.println("\nYou currently have no items.\n");
+			System.out.println("1. Back\n");
 		} else {
 			for(int i = 0; i < DarkMain.items.length; i++){
 				if(DarkMain.items[i].equals("")){
@@ -286,7 +287,7 @@ class Util {
             String i = mapIn.nextLine();
             System.out.println(i);
         }
-		System.out.println("\n1. Back");
+		System.out.println("\n1. Back\n");
 	}
 	public static void dispChoice(){
 		System.out.println("\n1: Actions");
@@ -295,7 +296,7 @@ class Util {
 		System.out.println("4: Stats\n");
 	}
 	public static void dispStats(){
-		System.out.println("Health: " + Stats.health);
+		System.out.println("\nHealth: " + Stats.health);
 		System.out.println("Strength: " + Stats.strength);
 		System.out.println("Charisma: " + Stats.charisma);
 		System.out.println("\n1. Back\n");
