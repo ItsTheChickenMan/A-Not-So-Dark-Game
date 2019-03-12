@@ -18,4 +18,5 @@ Overall:
 -Debugged items list (would show you items and then bring you back to main options without input)
 -Neatened up some code
 
-[3/12/19] - 
+[3/12/19] - Created GitHub page for development documentation.
+-Dev Build 1 finished.  Features one location.  Is more of a proof of concept than anything.
