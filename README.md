@@ -5,6 +5,11 @@ Currently in development stage.  This page is more or less being created just so
 
 A new build will be released weekly, at the very least.
 
+# CURRENT BUILD
+Dev Build 1 is available via download
+
+Features one location, second location is in source code but is being worked on and can't be accessed in-game.
+
 # Compatibility
 JRE 1.8.0_201 is currently required to run.
 
