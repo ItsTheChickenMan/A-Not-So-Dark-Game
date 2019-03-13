@@ -19,5 +19,9 @@ Overall:
 -Neatened up some code
 
 [3/12/19] - Created GitHub page for development documentation.
--Dev Build 1 finished.  Features one location.  Is more of a proof of concept than anything.
--Started location 2, features a lot more paths and
+-Dev Build 1.0 finished.  Features one location.  Is more of a proof of concept than anything.
+-Started location 2, features a lot more paths and options
+
+[3/13/19] - Goals for today:
+-Create all dialogue options for axeman
+-Release Dev Build 1.02?
