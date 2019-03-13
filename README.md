@@ -6,9 +6,9 @@ Currently in development stage.  This page is more or less being created just so
 A new build will be released weekly, at the very least.
 
 # CURRENT BUILD
-Dev Build 1 is available via download at the releases page.  It features one location.
+You are playing the latest version, which is probably buggy but features more stuff.  If you find bugs, report them, please, so I can fix them ASAP.
 
-For latest version (probably buggy) download using the "Clone or Download" button at the source code page.
+Dev Build 1.0 (latest functioning version) is available via download at the releases page.  It features one location.
 
 # Compatibility
 JRE 1.8.0_201 is currently required to run.  You can download it here: https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
