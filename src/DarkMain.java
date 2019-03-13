@@ -11,9 +11,9 @@ public class DarkMain {
 	static final Scanner input = new Scanner(System.in); //Input used for entire program
 	static String[] items = {"","","","","","","","","",""}; //Items List
 	static int[] location = {1, 7};  //Location on map (1 is x pos, 2 is y pos)
+	static StringBuffer username = new StringBuffer(""); //Username
 	public static void main(String[] args) throws Exception {
 		//Initializing Important Variables
-		StringBuffer username = new StringBuffer(""); //Username
 		String msg1 = "Oh good.  You know how to type.  We're getting somewhere.";
 		String msg2 = "What will your name be?";
 		String msg4 = "Well then, I wish you the best of luck on your journey.";
@@ -52,7 +52,7 @@ class Game {
 		char play = ' ';
 		System.out.println("**A NOT SO DARK GAME** Version " + version + "\n");
 		System.out.println("Created by ItsTheChickenMan\n");
-		System.out.printf("\nPlay (P)? : ");
+		System.out.printf("(Note: Play fullscreen for best experience)\nPlay (P)? : ");
 		while(true){
 			play = DarkMain.input.next().charAt(0); //Make sure to reference input as "DarkMain.input"
 			if(play != 'P'){
@@ -214,12 +214,13 @@ class Game {
 								Util.intPrint("\nYou manage to make it over the tree.");
 								Util.intPrint("\nYour exercise improves your strength by 2.");
 								Stats.strength += 2;
-								Util.intPrint("\nYou look behind you and realize the tree is too steep to climb back around.  The path continues on.  There is also a clearing to the right, which seems to have been partly caused by the falling tree.\n");
+								Util.clearScreen();
+								Util.intPrint("\nYou look behind you and realize the tree is too steep to climb back around.  The path continues on.  There is also a clearing to the right, which seems to have been\n partly caused by the falling tree.\n");
 								String[] actionl = {"Continue along the path.", "Explore around the clearing.", "Scream as loudly as you can.", "Back."};
 								while(true){
 									Util.dispChoice();
 									int key = Util.checkChoice(actionl);
-									if(key == 1){
+									if(key == 1){ //If you actually climb the darned tree
 										while(true){
 											while(!DarkMain.input.hasNextInt()){
 												System.out.println("Invalid Input.  Try again.");
@@ -244,22 +245,51 @@ class Game {
 								}
 							}
 						} else if(temp == 2){ //If you choose to walk around
-							String[] actons = {"Talk", "Slowly Back Away", "Run Away"};
-							Util.intPrint("You walk around the tree.  It is very long, and you walk about a mile before you reach a stump.  Waiting for you at the stump is a man, carrying an axe.  He appears to have chopped the tree down.");
+							String[] actons = {"Talk", "Slowly Back Away", "Run Away", "Back"};
+							Util.clearScreen();
+							Util.intPrint("You walk around the tree.  It is very long, and you walk about a mile before you reach a stump.  Waiting for you at the stump is a man, carrying an axe.  He appears\nto have chopped the tree down.");
 							Util.dispChoice();
 							int check = Util.checkChoice(actons);
 							if(check == 1){
-								Util.intPrint("1.  Hello there sir, how are you today?");
-								Util.intPrint("2.  Hey, could you get me some directions?");
-								Util.intPrint("3.  YOU BEST WATCH OUT I GOT AN AXE AND I AIN'T AFRAID TO USE IT");
 								while(!DarkMain.input.hasNextInt()){
 									System.out.println("Invalid Input.  Try again.");
 									DarkMain.input.next();
 								}
-								int speak = DarkMain.input.nextInt();
-								if(speak == 1){
-								} else if(speak == 2){
-								} else if(speak == 3){
+								int nex = DarkMain.input.nextInt();
+								if(nex == 1){
+									Util.intPrint("\nYou try to spark conversation.\n");
+									Util.intPrint("1.  \"Hello there sir, how are you today?\"");
+									Util.intPrint("2.  \"Hey, could you get me some directions?\"");
+									Util.intPrint("3.  \"YOU BEST WATCH OUT I GOT AN AXE AND I AIN'T AFRAID TO USE IT\"\n");
+									while(!DarkMain.input.hasNextInt()){
+										System.out.println("Invalid Input.  Try again.");
+										DarkMain.input.next();
+									}
+									int speak = DarkMain.input.nextInt();
+									if(speak == 1){
+										Util.intPrint("\n" + DarkMain.username + ": \"Hello there sir, how are you today?\"\n");
+										Util.intPrint("Axeman: \"I'm actually in a rather bad mood.  You'd best be gone, now, unless you want to be chopped to death and sold on the streets as luxury fire wood.\"\n");
+										Util.intPrint("\n1.  \"Oh, come now, that's a bunch o' rubbish.\"");
+										Util.intPrint("\n2.  \"Okay, okay!  But can I ask you a question first?\"");
+										Util.intPrint("\n3.  Walk away.");
+										while(!DarkMain.input.hasNextInt()){
+											System.out.println("Invalid Input.  Try again.");
+											DarkMain.input.next();
+										}
+										int sped = DarkMain.input.nextInt();
+										if(sped == 1){
+											Util.intPrint("\nYou decide to become British for no reason.\n");
+											Util.intPrint("");
+										} else if(sped == 2){
+										} else if(sped == 3){
+										} else {
+										}
+									} else if(speak == 2){
+									} else if(speak == 3){
+									} else {
+									}
+								} else if(nex == 2){
+								} else if(nex == 3){
 								} else {
 								}
 							} else if(check == 2){
