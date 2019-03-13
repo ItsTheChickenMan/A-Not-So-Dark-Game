@@ -248,52 +248,60 @@ class Game {
 							String[] actons = {"Talk", "Slowly Back Away", "Run Away", "Back"};
 							Util.clearScreen();
 							Util.intPrint("You walk around the tree.  It is very long, and you walk about a mile before you reach a stump.  Waiting for you at the stump is a man, carrying an axe.  He appears\nto have chopped the tree down.");
-							Util.dispChoice();
-							int check = Util.checkChoice(actons);
-							if(check == 1){
-								while(!DarkMain.input.hasNextInt()){
-									System.out.println("Invalid Input.  Try again.");
-									DarkMain.input.next();
-								}
-								int nex = DarkMain.input.nextInt();
-								if(nex == 1){
-									Util.intPrint("\nYou try to spark conversation.\n");
-									Util.intPrint("1.  \"Hello there sir, how are you today?\"");
-									Util.intPrint("2.  \"Hey, could you get me some directions?\"");
-									Util.intPrint("3.  \"YOU BEST WATCH OUT I GOT AN AXE AND I AIN'T AFRAID TO USE IT\"\n");
+							while(true){
+								Util.dispChoice();
+								int check = Util.checkChoice(actons);
+								if(check == 1){
 									while(!DarkMain.input.hasNextInt()){
 										System.out.println("Invalid Input.  Try again.");
 										DarkMain.input.next();
 									}
-									int speak = DarkMain.input.nextInt();
-									if(speak == 1){
-										Util.intPrint("\n" + DarkMain.username + ": \"Hello there sir, how are you today?\"\n");
-										Util.intPrint("Axeman: \"I'm actually in a rather bad mood.  You'd best be gone, now, unless you want to be chopped to death and sold on the streets as luxury fire wood.\"\n");
-										Util.intPrint("\n1.  \"Oh, come now, that's a bunch o' rubbish.\"");
-										Util.intPrint("\n2.  \"Okay, okay!  But can I ask you a question first?\"");
-										Util.intPrint("\n3.  Walk away.");
+									int nex = DarkMain.input.nextInt();
+									if(nex == 1){
+										Util.clearScreen();
+										Util.intPrint("\nYou try to spark conversation.\n");
+										Util.intPrint("1.  \"Hello there sir, how are you today?\"");
+										Util.intPrint("2.  \"Hey, could you get me some directions?\"");
+										Util.intPrint("3.  \"YOU BEST WATCH OUT I GOT AN AXE AND I AIN'T AFRAID TO USE IT\"\n");
 										while(!DarkMain.input.hasNextInt()){
 											System.out.println("Invalid Input.  Try again.");
 											DarkMain.input.next();
 										}
-										int sped = DarkMain.input.nextInt();
-										if(sped == 1){
-											Util.intPrint("\nYou decide to become British for no reason.\n");
-											Util.intPrint("");
-										} else if(sped == 2){
-										} else if(sped == 3){
+										int speak = DarkMain.input.nextInt();
+										if(speak == 1){
+											Util.clearScreen();
+											Util.intPrint("\n" + DarkMain.username + ": \"Hello there sir, how are you today?\"\n");
+											Util.intPrint("Axeman: \"I'm actually in a rather bad mood.  You'd best be gone, now, unless you want to be chopped to death and sold on the streets as luxury fire wood.\"\n");
+											Util.intPrint("\n1.  \"Oh, come now, that's a bunch o' rubbish.\"");
+											Util.intPrint("\n2.  \"Okay, okay!  But can I ask you a question first?\"");
+											Util.intPrint("\n3.  Walk away.\n");
+											while(!DarkMain.input.hasNextInt()){
+												System.out.println("Invalid Input.  Try again.");
+												DarkMain.input.next();
+											}
+											int sped = DarkMain.input.nextInt();
+											if(sped == 1){
+												Util.intPrint("\nYou decide to become British for no reason.");
+												Util.intPrint("\n" + DarkMain.username + ": \"Oh, come now, that's a bunch o' rubbish.\"");
+												
+											} else if(sped == 2){
+											} else if(sped == 3){
+											} else {
+											}
+										} else if(speak == 2){
+										} else if(speak == 3){
 										} else {
 										}
-									} else if(speak == 2){
-									} else if(speak == 3){
+									} else if(nex == 2){
+									} else if(nex == 3){
 									} else {
 									}
-								} else if(nex == 2){
-								} else if(nex == 3){
+								} else if(check == 2){
+									
+								} else if(check == 3){
+								} else if(check == 4){
 								} else {
 								}
-							} else if(check == 2){
-								
 							}
 						} else if(temp == 3){
 							
