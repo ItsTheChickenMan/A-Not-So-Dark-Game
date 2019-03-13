@@ -20,3 +20,4 @@ Overall:
 
 [3/12/19] - Created GitHub page for development documentation.
 -Dev Build 1 finished.  Features one location.  Is more of a proof of concept than anything.
+-Started location 2, features a lot more paths and
