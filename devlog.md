@@ -25,3 +25,7 @@ Overall:
 [3/13/19] - Goals for today:
 -Create all dialogue options for axeman
 -Release Dev Build 1.02?
+
+[3/14/19] - Def. not releasing Dev Build 2 until next week
+-Worked on location two some more
+-Dialogue and such
