@@ -10,7 +10,7 @@ import java.lang.Runtime;
 public class DarkMain {	
 	static final Scanner input = new Scanner(System.in); //Input used for entire program
 	static String[] items = {"","","","","","","","","",""}; //Items List
-	static int[] location = {1, 7};  //Location on map (1 is x pos, 2 is y pos)
+	static int[] location = {1, 6};  //Location on map (1 is x pos, 2 is y pos)
 	static StringBuffer username = new StringBuffer(""); //Username
 	public static void main(String[] args) throws Exception {
 		//Initializing Important Variables
@@ -65,6 +65,7 @@ class Game {
 	}
 	public static void scene() throws Exception {  //The main game, based off of location (ex. (1,7) is opening scene)
 		boolean end = false;
+		boolean axeManDead;
 		while(end != true){
 			if((DarkMain.location[0] == 1) && (DarkMain.location[1] == 7)){ //Location 1,7
 				String[] actions = {"Travel Path", "Climb Tree", "Back"};
@@ -247,7 +248,7 @@ class Game {
 						} else if(temp == 2){ //If you choose to walk around
 							String[] actons = {"Talk", "Slowly Back Away", "Run Away", "Back"};
 							Util.clearScreen();
-							Util.intPrint("You walk around the tree.  It is very long, and you walk about a mile before you reach a stump.  Waiting for you at the stump is a man, carrying an axe.  He appears\nto have chopped the tree down.");
+							Util.intPrint("You walk west to get around the tree.  It is very long, and you walk about a mile before you reach a stump.  Waiting for you at the stump is a man, carrying an axe.  He\nappears to have chopped the tree down.");
 							while(true){
 								Util.dispChoice();
 								int check = Util.checkChoice(actons);
@@ -259,7 +260,7 @@ class Game {
 									int nex = DarkMain.input.nextInt();
 									if(nex == 1){
 										Util.clearScreen();
-										Util.intPrint("\nYou try to spark conversation.\n");
+										Util.intPrint("You try to spark conversation.\n");
 										Util.intPrint("1.  \"Hello there sir, how are you today?\"");
 										Util.intPrint("2.  \"Hey, could you get me some directions?\"");
 										Util.intPrint("3.  \"YOU BEST WATCH OUT I GOT AN AXE AND I AIN'T AFRAID TO USE IT\"\n");
@@ -270,21 +271,112 @@ class Game {
 										int speak = DarkMain.input.nextInt();
 										if(speak == 1){
 											Util.clearScreen();
-											Util.intPrint("\n" + DarkMain.username + ": \"Hello there sir, how are you today?\"\n");
-											Util.intPrint("Axeman: \"I'm actually in a rather bad mood.  You'd best be gone, now, unless you want to be chopped to death and sold on the streets as luxury fire wood.\"\n");
+											Util.intPrint(DarkMain.username + ": \"Hello there sir, how are you today?\"\n");
+											Util.intPrint("Axeman: \"I'm actually in a rather bad mood.  You'd best be gone, now, unless you're in the mood for an axehead in your side.\"\n");
 											Util.intPrint("\n1.  \"Oh, come now, that's a bunch o' rubbish.\"");
-											Util.intPrint("\n2.  \"Okay, okay!  But can I ask you a question first?\"");
-											Util.intPrint("\n3.  Walk away.\n");
+											Util.intPrint("2.  \"Okay, okay!  But can I ask you a question first?\"");
+											Util.intPrint("3.  Walk away.\n");
 											while(!DarkMain.input.hasNextInt()){
 												System.out.println("Invalid Input.  Try again.");
 												DarkMain.input.next();
 											}
 											int sped = DarkMain.input.nextInt();
 											if(sped == 1){
-												Util.intPrint("\nYou decide to become British for no reason.");
+												Util.clearScreen();
+												Util.intPrint("You decide to become British for no reason.\n");
 												Util.intPrint("\n" + DarkMain.username + ": \"Oh, come now, that's a bunch o' rubbish.\"");
-												
+												Util.intPrint("\nThe Axeman spares you the witty remark and just throws the axe at you out of annoyance.\n");
+												String[] wo = {"dodge"};
+												int tes = Util.reactionTest(wo, false, 2200);
+												if(tes == 0){
+													Util.intPrint("You are too slow.  The axe hits and kills you on the spot.");
+													Util.printDead();
+													end = true;
+													break;
+												} else {
+													Util.intPrint("\nYou dodge the axe, and it plunks down on the ground next to you.  You pick it up.");
+													Util.intPrint("\n1. Kill him.");
+													Util.intPrint("\n2. Spare him.\n");
+													while(!DarkMain.input.hasNextInt()){
+														System.out.println("Invalid Input, try again.");
+														DarkMain.input.next();
+													}
+													int kh = DarkMain.input.nextInt();
+													if(kh == 1){
+														int rando = ThreadLocalRandom.current().nextInt(1, 5);
+														if(rando == 1){
+															Util.clearScreen();
+															Util.intPrint("You go to strike, but he narrowly dodges.  You turn around, and the last thing you see is him holding a hunting knife, lunging for your throat.");
+															Util.printDead();
+															end = true;
+															break;
+														} else {
+															Util.clearScreen();
+															Util.intPrint("He is not fast enough to dodge, and you kill him.  You find a hunting knife on his body.  It gives you +15 strength when you use it.");
+															Util.intPrint("\nA small, vegetation filled trail leads forward.");
+															Util.intPrint("1. Follow Path.\n");
+															while(!DarkMain.input.hasNextInt()){
+																System.out.println("Invalid Input, try again");
+															}
+															int m = DarkMain.input.nextInt();
+															if(m == 1){
+																axeManDead = true;
+																DarkMain.location[0] = 2;
+																DarkMain.location[1] = 6;
+																break;
+															}
+				
+														}
+													} else if (kh == 2){
+														Util.clearScreen();
+														axeManDead = false;
+														Util.intPrint("You throw the axe aside and offer a hand.");
+														Util.intPrint("Axeman: \"What?  Whaddya want?\"");
+														Util.intPrint(DarkMain.username + ": \"Just offering a hand.  You think you could get me outta this forest?\"");
+														Util.intPrint("Axeman: \"Unlikely.  I stopped trying 10 years ago when I realized it was too dark for me to navigate, and my eyesight's only getting worse.\n         I could build a fire...but it's too dark.\"");
+														Util.intPrint("Axeman: \"I do have a shelter nearby, though.  It's just down this path.  Follow me.\"");
+														DarkMain.location[0] = 2;
+														DarkMain.location[1] = 6;
+														break;
+													}														
+												}
 											} else if(sped == 2){
+												Util.intPrint(DarkMain.username + ": \"Okay, okay!  But can I ask you a question first?\"");
+												Util.intPrint("Axeman: \"You've got 3 seconds.\"");
+												Util.intPrint("1.  \"Who are you?\"");
+												Util.intPrint("2.  \"Where am I?\"");
+												Util.intPrint("3.  \"Why are you so damn ugly?\"");
+												while(true){
+													while(!DarkMain.input.hasNextInt()){
+														System.out.println("You don't have time to give me invalid input.  Hurry up!");
+														DarkMain.input.next();
+													}
+													long yeep = System.nanoTime();
+													int qui = DarkMain.input.nextInt();
+													long nope = System.nanoTime();
+													long ell = nope - yeep;
+													if((ell/1000000) > 3000){
+														Util.intPrint("Axeman: \"I don't have time for this.\"");
+														Util.intPrint("\nBefore you know it, he throws the axe.  It kills you, blah blah blah (sorry about that, the developer got sick of writing dialogue)");
+														Util.printDead();
+														end = true;
+														break;
+													}
+													if(qui == 1){
+														Util.intPrint(DarkMain.username + ":  \"Who are you?\"");
+														Util.intPrint("Axeman:  \"An old adventurer.\"");
+														Util.intPrint(DarkMain.username + ":  \"Well then, from one adventurer to another, do you think you could do me a favor?\"");
+														Util.intPrint("Axeman: \"No.\"");
+														Util.intPrint("Without even a second thought, he throws the axe.");
+														Util.printDead();
+														end = true;
+														break;
+													} else if(qui == 2){
+														Util.intPrint(DarkMain.username + ": \"Where am I?\"");
+														Util.intPrint("He sighs.  Looks like you've hit a sensitive topic.");
+														Util.intPrint("Axeman: \"You're in a inescapable forest.\'");
+													}
+												}
 											} else if(sped == 3){
 											} else {
 											}
@@ -301,14 +393,17 @@ class Game {
 								} else if(check == 3){
 								} else if(check == 4){
 								} else {
+				
 								}
 							}
+							break;
 						} else if(temp == 3){
 							
 						}
 					} else if(choice == 2){
 						//If items have special affects, put them here
 					} 
+					break;
 				}
 			}
 		}
@@ -437,16 +532,18 @@ class Util {
 			}
 			TimeUnit.MILLISECONDS.sleep(250);
 		}
+		Util.secPause(3);
 	}
-	public static int reactionTest(String[] words, boolean warning, int time) throws Exception {
+	public static int reactionTest(String[] words, boolean warning, int time) throws Exception { //"time" is in milliseconds
 		if(warning == true){
 			Util.intPrint("For this action, we will test your reaction speed.");
 			Util.intPrint("Words will be printed on the screen, and you will have 1.5 seconds to type them.");
 			Util.intPrint("Ready?");
 			Util.secPause(1);
 			System.out.println("GO!\n");
+		} else {
+			System.out.println("Reaction test!  GO!\n");
 		}
-			
 		for(int i = 0; i < words.length; i++){
 			int randomNum = ThreadLocalRandom.current().nextInt(1, 4);
 			Util.secPause(randomNum);
