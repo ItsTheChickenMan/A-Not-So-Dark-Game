@@ -375,6 +375,10 @@ class Game {
 														Util.intPrint(DarkMain.username + ": \"Where am I?\"");
 														Util.intPrint("He sighs.  Looks like you've hit a sensitive topic.");
 														Util.intPrint("Axeman: \"You're in a inescapable forest.\'");
+														Util.intPrint(DarkMain.username + ": \"Inescapable?\"");
+														Util.intPrint("Axeman: \"Indeed.  I've tried before, you'll never get anywhere.  It's completely endless.\"");
+														Util.intPrint(DarkMain.username + ": \"Then why does this map say otherwise?\"");
+														Util.intPrint("\nYou hand him a map.\n");
 													}
 												}
 											} else if(sped == 3){
