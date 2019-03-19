@@ -26,6 +26,9 @@ Overall:
 -Create all dialogue options for axeman
 -Release Dev Build 1.02?
 
-[3/14/19] - Def. not releasing Dev Build 2 until next week
+[3/14/19] - Definitely not releasing Dev Build 2 until next week
 -Worked on location two some more
 -Dialogue and such
+
+[3/19/19] - Was a little busy but got a good amount of work done on location 2, should be finished soon so I can release Dev Build 2
+
