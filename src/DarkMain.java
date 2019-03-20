@@ -64,16 +64,15 @@ class Stats {
 }
 class Game {
 	public static void printTitle(String version) throws Exception {  //Prints Title and Crap
-		char play = ' ';
 		System.out.println("**A NOT SO DARK GAME** Version " + version + "\n");
 		System.out.println("Created by ItsTheChickenMan\n");
 		System.out.printf("(Note: Play fullscreen for best experience)\nPlay (P)? : ");
 		while(true){
-			play = DarkMain.input.next().charAt(0); //Make sure to reference input as "DarkMain.input"
-			if(play != 'P'){
+			String title = DarkMain.input.nextLine(); //Make sure to reference input as "DarkMain.input"
+			if(!title.toLowerCase().equals("p")){
 				Util.secPause(1);
 				System.out.println("I dunno what that means.  You wanna play or what?\n");
-			} else if(play == 'P'){
+			} else if(title.toLowerCase().equals("p")){
 				break;
 			}
 		}
@@ -466,6 +465,19 @@ class Game {
 												} else {
 												}
 											} else if(speak == 2){
+												Util.clearScreen();
+												Util.intPrint(DarkMain.username + ": \"Hey, could you get me some directions?\"\n");
+												Util.intPrint("Axeman: \"Directions?  To where?  There's no where to go!  You go anywhere 'cept up and there's too many trees!  \nIf you head north, all you get is N, W!  That's all I know, N, W!!!\"\n");
+												Util.intPrint("1.  \"Hey, calm down.  No reason to get mad.\"");
+												Util.intPrint("2.  \"Uh...yes!  Thanks for the help!\"");
+												Util.intPrint("3.  Walk away.");
+												while(true){
+													while(!DarkMain.input.hasNextInt()){
+														System.out.println("Invalid Input.  Try again.");
+														DarkMain.input.next();
+													}
+													
+												}
 											} else if(speak == 3){
 											} else {
 											}
@@ -525,7 +537,7 @@ class Game {
 						continue;
 					} else if(choice == 4){
 						continue;
-					}
+					} 
 					break;
 				}
 			}
@@ -666,6 +678,11 @@ class Util {
 		} else {
 			System.out.println("Reaction test!  GO!\n");
 		}
+		while(DarkMain.input.hasNext()){
+			DarkMain.input.next();
+		}
+		String clear = DarkMain.input.next();
+		System.out.println();
 		for(int i = 0; i < words.length; i++){
 			int randomNum = ThreadLocalRandom.current().nextInt(1, 4);
 			Util.secPause(randomNum);
