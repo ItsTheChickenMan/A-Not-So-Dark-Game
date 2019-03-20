@@ -10,7 +10,7 @@ import java.lang.Runtime;
 public class DarkMain {	
 	static final Scanner input = new Scanner(System.in); //Input used for entire program
 	static String[] items = {"","","","","","","","","",""}; //Items List
-	static int[] location = {1, 6};  //Location on map (1 is x pos, 2 is y pos, START is 1, 7)
+	static int[] location = {1, 7};  //Location on map (1 is x pos, 2 is y pos, START is 1, 7)
 	static StringBuffer username = new StringBuffer(""); //Username
 	public static void main(String[] args) throws Exception {
 		//Initializing Important Variables
