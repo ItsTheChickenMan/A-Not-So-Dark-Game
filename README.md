@@ -13,6 +13,8 @@ Dev Build 1.0 (latest functioning version) is available via download at the rele
 # Compatibility
 JRE 1.8.0_201 is currently required to run.  You can download it here: https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 
+Make sure you add the files to PATH!
+
 Compatible with Windows XP, 7, and 10.
 
 # How To Run
