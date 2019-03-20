@@ -32,3 +32,5 @@ Overall:
 
 [3/19/19] - Was a little busy but got a good amount of work done on location 2, should be finished soon so I can release Dev Build 2
 
+
+[3/20/19] - Releasing Debug for Dev Build 2 Before I release it
