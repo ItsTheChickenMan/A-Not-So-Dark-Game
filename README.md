@@ -3,7 +3,7 @@ A small command-prompt game project I work on in my free time.
 
 Currently in development stage.  The github page is more or less being created just so that I can document my progress, and so that if anyone I know asks to try it they can get the latest build.  I'm not here for collaborators, or to distribute anything publicly.
 
-A new build will be released weekly, at the very least.
+A new build will be released monthy, at the very least.
 
 # CURRENT BUILD
 You are playing the latest version, which is probably buggy but features more stuff.  If you find bugs, report them, please, so I can fix them ASAP.
