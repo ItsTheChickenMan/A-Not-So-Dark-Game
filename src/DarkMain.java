@@ -56,7 +56,6 @@ public class DarkMain {
 		input.close();  //This comes at the end of the code in order to close the input stream (DON'T CLOSE MID PROGRAM)
 	}
 }
-	
 class Stats {
 	public static int health = 100; //Out of 100
 	public static int strength = 5; //Out of 100
@@ -71,16 +70,18 @@ class Game {
 			String title = DarkMain.input.nextLine(); //Make sure to reference input as "DarkMain.input"
 			if(!title.toLowerCase().equals("p")){
 				Util.secPause(1);
-				System.out.println("I dunno what that means.  You wanna play or what?\n");
+				Util.intPrint("I dunno what that means.  You wanna play or what?\n");
 			} else if(title.toLowerCase().equals("p")){
 				break;
 			}
 		}
 	}
 	public static void scene() throws Exception {  //The main game, based off of location (ex. (1,7) is opening scene)
+		//Variables that have different effects on locations (ex. axeManDead changes location 2,6
 		boolean end = false;
 		boolean axeManDead = false;
 		boolean shortcut1 = false;
+		//End variables
 		while(end != true){
 			if((DarkMain.location[0] == 1) && (DarkMain.location[1] == 7)){ //Location 1,7
 				String[] actions = {"Travel Path", "Climb Tree", "Back"};
@@ -256,14 +257,13 @@ class Game {
 												
 											} else if(keep == 3){
 												Util.intPrint("You scream into the forest.  ...Nothing happens.  I'm not sure what you were expecting.");
-												continue;
+												break;
 											} else if(keep == 4){
-												
+												break;
 											} else {
 												System.out.println("Invalid Input, please try again.");
 												continue;
 											}
-											break;
 										}
 										if(end == true){
 											break;
@@ -370,9 +370,12 @@ class Game {
 																}
 																int m = DarkMain.input.nextInt();
 																if(m == 1){
-																	axeManDead = true;
-																	DarkMain.location[0] = 2;
-																	DarkMain.location[1] = 6;
+																	Util.clearScreen();
+																	Util.intPrint("All of a sudden, you walk up to a mysterious sign.  It reads...\"This is all this Dev Build has to offer.\"  You \nsigh at the laziness of the developer and wait for more.");
+																	end = true;
+																	//axeManDead = true;
+																	//DarkMain.location[0] = 2;
+																	//DarkMain.location[1] = 6;
 																	break;
 																}
 					
@@ -380,15 +383,17 @@ class Game {
 																System.out.println("Invalid Input.  Try again.");
 															}
 														} else if (kh == 2){
-															Util.clearScreen();
 															axeManDead = false;
 															Util.intPrint("You throw the axe aside and offer a hand.");
 															Util.intPrint("Axeman: \"What?  Whaddya want?\"");
 															Util.intPrint(DarkMain.username + ": \"Just offering a hand.  You think you could get me outta this forest?\"");
 															Util.intPrint("Axeman: \"Unlikely.  I stopped trying 10 years ago when I realized it was too dark for me to navigate, and my eyesight's only getting worse.\n         I could build a fire...but it's too dark.\"");
 															Util.intPrint("Axeman: \"I do have a shelter nearby, though.  It's just down this path.  Follow me.\"");
-															DarkMain.location[0] = 2;
-															DarkMain.location[1] = 6;
+															//DarkMain.location[0] = 2;
+															//DarkMain.location[1] = 6;
+															Util.clearScreen();
+															Util.intPrint("All of a sudden, you walk up to a mysterious sign.  It reads...\"This is all this Dev Build has to offer.\"  You \nsigh at the laziness of the developer and wait for more.");
+															end = true;
 															break;
 														} else {
 															System.out.println("Invalid Input.  Try again.");
@@ -431,9 +436,14 @@ class Game {
 															Util.intPrint("Axeman:  \"Well, there is this one problem.  I say this forest never ends because, as far as I know, it literally never ends.\"");
 															Util.intPrint("Axeman:  \"You see, there are too many trees down south to get anywhere anyways, so I always head up north.  But whenever I do, I see this marking on a tree.  It's \ntwo letters, 'N' and below it a 'W'.  I always assumed it meant northwest, but if I travel that way it just repeats.  I come back to the symbol, not having gotten anywhere.\"");
 															Util.intPrint("Axeman:  \"That place is usually pretty difficult to get to, but I know a shortcut.  Follow me.\"");
-															DarkMain.location[0] = 1;
-															DarkMain.location[1] = 5;
-															shortcut1 = true;
+															//
+															Util.clearScreen();
+															Util.intPrint("All of a sudden, you walk up to a mysterious sign.  It reads...\"This is all this Dev Build has to offer.\"  You \nsigh at the laziness of the developer and wait for more.");
+															Util.secPause(3);
+															end = true;
+															//DarkMain.location[0] = 1;
+															//DarkMain.location[1] = 5;
+															//shortcut1 = true;
 															break;
 														} else if(qui == 3){
 															Util.clearScreen();
@@ -476,8 +486,29 @@ class Game {
 														System.out.println("Invalid Input.  Try again.");
 														DarkMain.input.next();
 													}
-													
+													int sen = DarkMain.input.nextInt();
+													if(sen == 1){
+														Util.intPrint(DarkMain.username + ": \"Hey, calm down.  There's no reason to get mad.\"\n");
+														Util.intPrint("Axeman: \"There's plenty reason to be mad!  I can't get out of this stupid forest!!  AAHH!!\"\n");
+														Util.intPrint("He runs off into the distance.  Weird.\n");
+														Util.intPrint("Figuring that there's no where else to go, you travel back to the fallen tree.  It still blocks your path, in case you forgot.");
+														break;
+													} else if(sen == 2){
+														Util.intPrint(DarkMain.username + ": \"Uh...yes!  Thanks for the help!\"\n");
+														Util.intPrint("Axeman: \"Help?!?  How is that helpful???  If it was helpful I wouldn't be in this stupid forest!\"\n");
+														Util.intPrint(DarkMain.username + "\"No, uh...no, you were a great amount of help!\"\n");
+														Util.intPrint("Axe man: \"You liar.\"\n");
+														Util.intPrint("He throws his axe at you.  Yeah, crap like this happens A LOT here.");
+														Util.printDead();
+														end = true;
+														break;
+													} else if(sen == 3){
+													} else {
+														System.out.println("Invalid Input, try again.");
+														continue;
+													}
 												}
+												break;
 											} else if(speak == 3){
 											} else {
 											}
@@ -505,9 +536,26 @@ class Game {
 										}
 						
 									}
-									continue;
+									if(end = true){
+										break; 
+									} else {
+										continue;
+									}
 								} else if(check == 2){
-									
+									while(true){
+										while(!DarkMain.input.hasNextInt()){
+											System.out.println("\nInvalid input.  Try again.");
+											DarkMain.input.next();
+										}
+										int next = DarkMain.input.nextInt();
+										if(next == 1){
+											break;
+										} else {
+											System.out.println("Invalid input, please try again.");	
+										}
+									}
+									//If items have special affects, put them here
+									continue;
 								} else if(check == 3){
 								} else if(check == 4){
 								} else {
@@ -678,11 +726,6 @@ class Util {
 		} else {
 			System.out.println("Reaction test!  GO!\n");
 		}
-		while(DarkMain.input.hasNext()){
-			DarkMain.input.next();
-		}
-		String clear = DarkMain.input.next();
-		System.out.println();
 		for(int i = 0; i < words.length; i++){
 			int randomNum = ThreadLocalRandom.current().nextInt(1, 4);
 			Util.secPause(randomNum);
