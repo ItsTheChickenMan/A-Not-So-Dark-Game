@@ -33,6 +33,9 @@ Overall:
 [3/19/19] - Was a little busy but got a good amount of work done on location 2, should be finished soon so I can release Dev Build 2
 
 
-[3/20/19] - Changed code on reaction test so that you couldn't cheat ahead of time
+[3/20/19] -
 -Nearly finished location 2
 -Fixed menu so that you didn't have to type a capital 'P' because that's a problem I guess (eye roll)
+
+[3/22/19] - Planning on releasing Dev Build 2 in four days, might have to cut some parts to make deadline but it's close to done
+-Needs a lot of debugging
