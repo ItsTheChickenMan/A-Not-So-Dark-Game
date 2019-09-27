@@ -1,3 +1,5 @@
+NOTE:  I don't work on this anymore, it's not being updated.  You can try one of the old dev builds if you want though
+
 # A-Not-So-Dark-Game
 A small command-prompt game project I work on in my free time.
 
